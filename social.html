@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialSphere | Web Addicted</title>
+    <link rel="stylesheet" href="social.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="holder">
+        <div class="social-container">
+            <!-- Navigation Sidebar -->
+            <nav class="social-sidebar">
+                <div class="logo">SocialSphere</div>
+                <ul>
+                    <li class="active"><i class="fas fa-home"></i> Home</li>
+                    <li><i class="fas fa-comment-dots"></i> Messages</li>
+                    <li><i class="fas fa-bell"></i> Notifications</li>
+                    <li><i class="fas fa-calendar-check"></i> Events</li>
+                    <li><i class="fas fa-users"></i> Groups</li>
+                    <li><i class="fas fa-poll"></i> Polls</li>
+                    <li><i class="fas fa-cog"></i> Settings</li>
+                </ul>
+                <div class="user-profile">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile">
+                    <span>Aashiv Kohli</span>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="social-main">
+                <!-- Create Post Section -->
+                <section class="create-post">
+                    <div class="post-input">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                        <input type="text" placeholder="What's on your mind?" id="postContent">
+                        <button id="openPostModal"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="post-options">
+                        <div><i class="fas fa-image"></i> Photo</div>
+                        <div><i class="fas fa-poll"></i> Poll</div>
+                        <div><i class="fas fa-calendar"></i> Event</div>
+                    </div>
+                </section>
+
+                <!-- Post Feed -->
+                <section class="post-feed" id="postFeed">
+                    <!-- Posts will be loaded here via JavaScript -->
+                </section>
+
+                <!-- Trending Section -->
+                <section class="trending">
+                    <h3>Trending Today</h3>
+                    <div class="trending-item">
+                        <span class="hashtag">#WebDev</span>
+                        <span class="post-count">2.4K posts</span>
+                    </div>
+                    <div class="trending-item">
+                        <span class="hashtag">#TechNews</span>
+                        <span class="post-count">1.8K posts</span>
+                    </div>
+                    <div class="trending-item">
+                        <span class="hashtag">#DesignInspo</span>
+                        <span class="post-count">1.2K posts</span>
+                    </div>
+                    <button class="show-more">Show more</button>
+                </section>
+            </main>
+
+            <!-- Right Sidebar -->
+            <aside class="social-rightbar">
+                <div class="events">
+                    <h3>Upcoming Events</h3>
+                    <div class="event-card">
+                        <h4>Tech Conference 2025</h4>
+                        <p><i class="fas fa-calendar-alt"></i> Oct 15, 2025</p>
+                        <div class="rsvp-buttons">
+                            <button class="going">Going</button>
+                            <button class="interested">Interested</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group-chat">
+                    <h3>Group Chats</h3>
+                    <div class="chat-preview">
+                        <div class="chat-header">
+                            <span>Web Dev Group</span>
+                            <span class="online">5 online</span>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="message">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                                <div>
+                                    <span class="username">Sarah: </span>
+                                    <span class="message-text">Has anyone tried the new framework?</span>
+                                </div>
+                            </div>
+                            <div class="typing-indicator">
+                                <span>Alex is typing...</span>
+                                <div class="dots">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type a message...">
+                            <button><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Create Post Modal -->
+    <div id="postModal" class="modal">
+        <div class="modal-content social-modal">
+            <span class="close">&times;</span>
+            <h2>Create Post</h2>
+            <div class="post-creator">
+                <div class="post-user">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                    <span>Aashiv Kohli</span>
+                </div>
+                <textarea id="postText" placeholder="What's on your mind?" maxlength="280"></textarea>
+                <div class="char-counter"><span id="charCount">0</span>/280</div>
+                <div class="post-preview" id="postPreview"></div>
+                <div class="post-actions">
+                    <button class="emoji-btn"><i class="far fa-smile"></i></button>
+                    <button class="image-btn"><i class="far fa-image"></i></button>
+                    <button class="poll-btn"><i class="fas fa-poll"></i></button>
+                </div>
+                <button class="post-submit" id="submitPost">Post</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Poll Creator Modal -->
+    <div id="pollModal" class="modal">
+        <div class="modal-content social-modal">
+            <span class="close">&times;</span>
+            <h2>Create Poll</h2>
+            <div class="poll-creator">
+                <input type="text" id="pollQuestion" placeholder="Ask a question...">
+                <div class="poll-options">
+                    <div class="poll-option">
+                        <input type="text" placeholder="Option 1">
+                        <button class="remove-option"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="poll-option">
+                        <input type="text" placeholder="Option 2">
+                        <button class="remove-option"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                <button class="add-option" id="addOption">Add Option</button>
+                <div class="poll-preview">
+                    <h4>Preview</h4>
+                    <div class="pie-chart" id="pieChart">
+                        <canvas id="pollChart"></canvas>
+                    </div>
+                </div>
+                <button class="poll-submit" id="submitPoll">Create Poll</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="social.js"></script>
+</body>
+</html>
