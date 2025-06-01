@@ -1689,40 +1689,6 @@ body {
     border-radius: 50%;
 }
 
-/* Main Section */
-.social-main {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-/* Rightbar */
-.social-rightbar {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-/* Post Input */
-.post-input {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.post-input input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-}
-
-/* Chat Preview */
-.chat-preview {
-    border-top: 1px solid #ccc;
-    margin-top: 15px;
-    padding-top: 15px;
-}
 
 /* Responsive Rules */
 @media (max-width: 1024px) {
