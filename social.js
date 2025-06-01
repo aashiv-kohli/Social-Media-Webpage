@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (question && options.length >= 2) {
                     const newPost = {
                         id: posts.length + 1,
-                        user: 'John Doe',
+                        user: 'Aashiv Kohli',
                         avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
                         time: 'Just now',
                         content: `Poll: ${question}`,
